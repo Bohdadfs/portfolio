@@ -1,0 +1,802 @@
+/* ========================
+   RESET
+======================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+
+    background: #ffffff;
+
+    overflow-x: hidden;
+}
+
+
+
+/* ========================
+   LOADER
+======================== */
+
+.loader {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    background: #0a0a0a;
+
+    color: #ffffff;
+}
+
+
+.loader-content {
+    width: 100%;
+    height: 100%;
+
+    padding: 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+
+.loader-logo {
+    font-size: 18px;
+
+    font-weight: 500;
+
+    letter-spacing: 2px;
+}
+
+
+.loader-bottom {
+    width: 100%;
+}
+
+
+.loader-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    margin-bottom: 25px;
+}
+
+
+.loader-info > span:first-child {
+    font-size: 14px;
+
+    letter-spacing: 2px;
+}
+
+
+.loader-percent {
+    font-size: clamp(
+        70px,
+        15vw,
+        220px
+    );
+
+    line-height: 0.8;
+
+    letter-spacing: -8px;
+}
+
+
+.loader-line {
+    width: 100%;
+
+    height: 2px;
+
+    background:
+        rgba(255, 255, 255, 0.2);
+
+    overflow: hidden;
+}
+
+
+.loader-line-progress {
+    width: 0%;
+
+    height: 100%;
+
+    background: #ffffff;
+
+    transition:
+        width 0.1s linear;
+}
+
+
+
+/* ========================
+   HERO
+======================== */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 40px;
+
+    overflow: hidden;
+
+    color: #000000;
+
+    background: #f2f2f2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+
+
+/* ========================
+   HERO BACKGROUND IMAGE
+======================== */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        url("assets/images/me.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    filter: none;
+
+    opacity: 1;
+
+    transform: none;
+
+    z-index: 0;
+}
+
+
+
+/* Ніякого білого шару */
+
+.hero::after {
+    content: none;
+}
+
+
+
+/* Контент поверх картинки */
+
+.hero > * {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+
+/* ========================
+   HERO TOP
+======================== */
+
+.hero-top,
+.hero-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+
+/* ========================
+   HERO TITLE
+======================== */
+
+.hero-title-mask {
+    overflow: hidden;
+}
+
+
+.hero-title h1 {
+    font-size: clamp(
+        60px,
+        14vw,
+        220px
+    );
+
+    line-height: 0.8;
+
+    letter-spacing: -8px;
+
+    color: #000000;
+
+    font-weight: 500;
+
+    transform:
+        translateY(110%);
+
+    transition:
+        transform 1.2s
+        cubic-bezier(
+            0.76,
+            0,
+            0.24,
+            1
+        );
+}
+
+
+
+/* ========================
+   HERO ANIMATION
+======================== */
+
+.hero.show .hero-title h1 {
+    transform:
+        translateY(0);
+}
+
+
+.hero.show .hero-top,
+.hero.show .hero-bottom {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+.hero.show .hero-bottom {
+    transition-delay: 0.2s;
+}
+
+
+
+/* ========================
+   CUSTOM CURSOR
+======================== */
+
+.cursor {
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 12px;
+
+    height: 12px;
+
+    background: #111111;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 10000;
+
+    transform:
+        translate(-50%, -50%);
+
+    transition:
+        width 0.25s ease,
+        height 0.25s ease,
+        background 0.25s ease;
+}
+
+
+
+/* Збільшений курсор */
+
+.cursor.active {
+    width: 50px;
+
+    height: 50px;
+
+    background:
+        rgba(20, 20, 20, 0.15);
+}
+
+
+
+/* ========================
+   WHITE CURSOR
+======================== */
+
+.cursor.light {
+    background: #ffffff;
+}
+
+
+.cursor.light.active {
+    width: 50px;
+
+    height: 50px;
+
+    background:
+        rgba(255, 255, 255, 0.25);
+}
+
+
+
+/* ========================
+   DESKTOP CURSOR
+======================== */
+
+@media (pointer: fine) {
+
+    body {
+        cursor: none;
+    }
+
+
+    a,
+    button {
+        cursor: none;
+    }
+
+}
+
+
+
+/* ========================
+   TOUCH DEVICES
+======================== */
+
+@media (pointer: coarse) {
+
+    .cursor {
+        display: none;
+    }
+
+}
+
+
+
+/* ========================
+   PROJECTS
+======================== */
+
+.projects {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 120px 40px;
+
+    background: #0a0a0a;
+
+    color: #ffffff;
+}
+
+
+
+/* ========================
+   PROJECTS HEADER
+======================== */
+
+.projects-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-bottom: 30px;
+
+    margin-bottom: 80px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.25);
+}
+
+
+.projects-header h2 {
+    font-size: 14px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+}
+
+
+.projects-header span {
+    font-size: 12px;
+
+    opacity: 0.5;
+}
+
+
+
+/* ========================
+   PROJECT GRID
+======================== */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 100px 30px;
+}
+
+
+
+/* Третя картка на всю ширину */
+
+.project-card:nth-child(3) {
+    grid-column:
+        1 / -1;
+}
+
+
+
+/* ========================
+   PROJECT CARD
+======================== */
+
+.project-card {
+    position: relative;
+}
+
+
+
+/* ========================
+   PROJECT META
+======================== */
+
+.project-meta {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.5;
+}
+
+
+
+/* ========================
+   PROJECT IMAGE
+======================== */
+
+.project-image {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 10;
+
+    overflow: hidden;
+
+    background: #181818;
+}
+
+
+.project-image img {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transform:
+        scale(1);
+
+    transition:
+        transform 0.8s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        );
+}
+
+
+
+/* ========================
+   PROJECT BOTTOM
+======================== */
+
+.project-card-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    padding-top: 20px;
+}
+
+
+
+/* ========================
+   PROJECT TITLE
+======================== */
+
+.project-card-bottom h3 {
+    font-size: clamp(
+        30px,
+        4vw,
+        70px
+    );
+
+    font-weight: 500;
+
+    line-height: 0.9;
+
+    letter-spacing: -3px;
+}
+
+
+
+/* ========================
+   PROJECT DESCRIPTION
+======================== */
+
+.project-card-bottom p {
+    margin-top: 12px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.5;
+}
+
+
+
+/* ========================
+   PROJECT ARROW
+======================== */
+
+.project-card-arrow {
+    flex-shrink: 0;
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+
+/* ========================
+   PROJECT HOVER
+======================== */
+
+.project-card:hover
+.project-image img {
+    transform:
+        scale(1.06);
+}
+
+
+.project-card:hover
+.project-card-arrow {
+    transform:
+        rotate(45deg);
+}
+
+
+
+/* ========================
+   TABLET
+======================== */
+
+@media (max-width: 900px) {
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+
+        gap: 80px;
+    }
+
+
+    .project-card:nth-child(3) {
+        grid-column: auto;
+    }
+
+}
+
+
+
+/* ========================
+   MOBILE
+======================== */
+
+@media (max-width: 768px) {
+
+
+    /* LOADER */
+
+    .loader-content {
+        padding: 20px;
+    }
+
+
+    .loader-percent {
+        letter-spacing: -4px;
+    }
+
+
+
+    /* HERO */
+
+    .hero {
+        padding: 20px;
+    }
+
+
+    .hero::before {
+        background-size: cover;
+
+        background-position: center;
+
+        filter: none;
+
+        opacity: 1;
+
+        transform: none;
+    }
+
+
+    .hero-title h1 {
+        font-size: clamp(
+            55px,
+            18vw,
+            100px
+        );
+
+        letter-spacing: -4px;
+    }
+
+
+    .hero-top,
+    .hero-bottom {
+        font-size: 10px;
+    }
+
+
+
+    /* PROJECTS */
+
+    .projects {
+        padding:
+            80px 20px;
+    }
+
+
+    .projects-header {
+        margin-bottom: 50px;
+    }
+
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+    }
+
+
+    .project-card:nth-child(3) {
+        grid-column: auto;
+    }
+
+
+    .project-image {
+        aspect-ratio: 4 / 3;
+    }
+
+
+    .project-card-bottom h3 {
+        font-size: 40px;
+
+        letter-spacing: -2px;
+    }
+
+
+    .project-card-arrow {
+        font-size: 25px;
+    }
+
+}
+
+
+
+/* ========================
+   SMALL MOBILE
+======================== */
+
+@media (max-width: 480px) {
+
+    .hero {
+        min-height: 100svh;
+    }
+
+
+    .hero-title h1 {
+        font-size: 17vw;
+
+        letter-spacing: -3px;
+    }
+
+
+    .projects-header h2 {
+        font-size: 11px;
+    }
+
+
+    .project-card-bottom h3 {
+        font-size: 34px;
+    }
+
+
+    .project-card-bottom p {
+        font-size: 9px;
+    }
+
+}
