@@ -31,9 +31,9 @@ body {
 
 
 
-/* ========================
+/* =========================================
    LOADER
-======================== */
+========================================= */
 
 .loader {
     position: fixed;
@@ -42,92 +42,599 @@ body {
 
     z-index: 9999;
 
+    padding: 35px 40px;
+
     background: #0a0a0a;
 
     color: #ffffff;
-}
-
-
-.loader-content {
-    width: 100%;
-    height: 100%;
-
-    padding: 40px;
 
     display: flex;
 
     flex-direction: column;
 
     justify-content: space-between;
-}
-
-
-.loader-logo {
-    font-size: 18px;
-
-    font-weight: 500;
-
-    letter-spacing: 2px;
-}
-
-
-.loader-bottom {
-    width: 100%;
-}
-
-
-.loader-info {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: flex-end;
-
-    margin-bottom: 25px;
-}
-
-
-.loader-info > span:first-child {
-    font-size: 14px;
-
-    letter-spacing: 2px;
-}
-
-
-.loader-percent {
-    font-size: clamp(
-        70px,
-        15vw,
-        220px
-    );
-
-    line-height: 0.8;
-
-    letter-spacing: -8px;
-}
-
-
-.loader-line {
-    width: 100%;
-
-    height: 2px;
-
-    background:
-        rgba(255, 255, 255, 0.2);
 
     overflow: hidden;
 }
 
 
-.loader-line-progress {
-    width: 0%;
 
-    height: 100%;
+/* =========================================
+   LOADER TOP
+========================================= */
+
+.loader-top {
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+.loader-logo {
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+
+.loader-percent {
+    font-size: 14px;
+
+    letter-spacing: 1px;
+}
+
+
+
+/* =========================================
+   BUILD STAGE
+========================================= */
+
+.build-stage {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 70vh;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+
+/* =========================================
+   BUILD TEXT
+========================================= */
+
+.build-text {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+
+/* =========================================
+   BUILD LINE
+========================================= */
+
+.build-line {
+    display: flex;
+
+    align-items: center;
+
+    min-height: 0.85em;
+
+    font-size: clamp(
+        65px,
+        11vw,
+        180px
+    );
+
+    font-weight: 500;
+
+    line-height: 0.72;
+
+    letter-spacing: -8px;
+}
+
+
+
+/* =========================================
+   LETTER
+========================================= */
+
+.build-letter {
+    display: inline-block;
+
+    opacity: 0;
+
+    transform:
+        translateY(-80px)
+        rotate(15deg)
+        scale(0.7);
+
+    transform-origin:
+        bottom center;
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.5s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        );
+}
+
+
+
+/* LETTER INSTALLED */
+
+.build-letter.placed {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        rotate(0deg)
+        scale(1);
+}
+
+
+
+/* LETTER HIT */
+
+.build-letter.hit {
+    animation:
+        letterHit 0.25s ease;
+}
+
+
+@keyframes letterHit {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(1);
+    }
+
+
+    50% {
+        transform:
+            translateY(5px)
+            rotate(-3deg)
+            scale(0.96);
+    }
+
+
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(1);
+    }
+
+}
+
+
+
+/* =========================================
+   BUILDER
+========================================= */
+
+.builder {
+    position: absolute;
+
+    left: 20px;
+
+    top: 50%;
+
+    width: 42px;
+
+    height: 75px;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, -50%);
+
+    transition:
+        left 0.35s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        ),
+        top 0.35s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        );
+}
+
+
+
+/* =========================================
+   BUILDER HEAD
+========================================= */
+
+.builder-head {
+    position: absolute;
+
+    top: 10px;
+
+    left: 14px;
+
+    width: 14px;
+
+    height: 14px;
+
+    border: 2px solid #ffffff;
+
+    border-radius: 50%;
+}
+
+
+
+/* =========================================
+   BUILDER HELMET
+========================================= */
+
+.builder-helmet {
+    position: absolute;
+
+    top: 5px;
+
+    left: 11px;
+
+    width: 20px;
+
+    height: 10px;
 
     background: #ffffff;
 
+    border-radius:
+        12px 12px 2px 2px;
+}
+
+
+.builder-helmet::after {
+    content: "";
+
+    position: absolute;
+
+    left: -3px;
+
+    bottom: -2px;
+
+    width: 25px;
+
+    height: 2px;
+
+    background: #ffffff;
+}
+
+
+
+/* =========================================
+   BUILDER BODY
+========================================= */
+
+.builder-body {
+    position: absolute;
+
+    top: 27px;
+
+    left: 19px;
+
+    width: 4px;
+
+    height: 25px;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+}
+
+
+
+/* =========================================
+   BUILDER ARMS
+========================================= */
+
+.builder-arm {
+    position: absolute;
+
+    top: 30px;
+
+    width: 3px;
+
+    height: 23px;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    transform-origin:
+        top center;
+}
+
+
+.builder-arm-left {
+    left: 18px;
+
+    transform:
+        rotate(35deg);
+}
+
+
+.builder-arm-right {
+    left: 21px;
+
+    transform:
+        rotate(-35deg);
+}
+
+
+
+/* =========================================
+   BUILDER LEGS
+========================================= */
+
+.builder-leg {
+    position: absolute;
+
+    top: 50px;
+
+    width: 3px;
+
+    height: 25px;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    transform-origin:
+        top center;
+}
+
+
+.builder-leg-left {
+    left: 19px;
+
+    transform:
+        rotate(20deg);
+}
+
+
+.builder-leg-right {
+    left: 21px;
+
+    transform:
+        rotate(-20deg);
+}
+
+
+
+/* =========================================
+   BUILDER WALKING
+========================================= */
+
+.builder.walking
+.builder-leg-left {
+
+    animation:
+        walkLeft 0.25s
+        ease-in-out
+        infinite alternate;
+}
+
+
+.builder.walking
+.builder-leg-right {
+
+    animation:
+        walkRight 0.25s
+        ease-in-out
+        infinite alternate;
+}
+
+
+.builder.walking
+.builder-arm-left {
+
+    animation:
+        walkRight 0.25s
+        ease-in-out
+        infinite alternate;
+}
+
+
+.builder.walking
+.builder-arm-right {
+
+    animation:
+        walkLeft 0.25s
+        ease-in-out
+        infinite alternate;
+}
+
+
+@keyframes walkLeft {
+
+    from {
+        transform:
+            rotate(28deg);
+    }
+
+    to {
+        transform:
+            rotate(-28deg);
+    }
+
+}
+
+
+@keyframes walkRight {
+
+    from {
+        transform:
+            rotate(-28deg);
+    }
+
+    to {
+        transform:
+            rotate(28deg);
+    }
+
+}
+
+
+
+/* =========================================
+   BUILDER WORKING
+========================================= */
+
+.builder.working
+.builder-arm-right {
+
+    animation:
+        hammerArm 0.18s
+        ease-in-out
+        3;
+}
+
+
+@keyframes hammerArm {
+
+    0% {
+        transform:
+            rotate(-60deg);
+    }
+
+
+    50% {
+        transform:
+            rotate(60deg);
+    }
+
+
+    100% {
+        transform:
+            rotate(-60deg);
+    }
+
+}
+
+
+
+/* =========================================
+   LETTER IN BUILDER HAND
+========================================= */
+
+.builder-letter {
+    position: absolute;
+
+    top: 27px;
+
+    left: 30px;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    color: #ffffff;
+
+    opacity: 0;
+
+    transform:
+        rotate(10deg);
+}
+
+
+.builder.carrying
+.builder-letter {
+
+    opacity: 1;
+}
+
+
+
+/* =========================================
+   LOADER BOTTOM
+========================================= */
+
+.loader-bottom {
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+.loader-status {
+    opacity: 0.5;
+}
+
+
+
+/* =========================================
+   FINISHED LOADER
+========================================= */
+
+.loader.finished
+.loader-status {
+
+    opacity: 1;
+}
+
+
+.loader.finished
+.builder {
+
+    opacity: 0;
+
     transition:
-        width 0.1s linear;
+        opacity 0.4s ease;
 }
 
 
@@ -159,7 +666,7 @@ body {
 
 
 /* ========================
-   HERO BACKGROUND IMAGE
+   HERO IMAGE
 ======================== */
 
 .hero::before {
@@ -182,22 +689,14 @@ body {
 
     opacity: 1;
 
-    transform: none;
-
     z-index: 0;
 }
 
-
-
-/* Ніякого білого шару */
 
 .hero::after {
     content: none;
 }
 
-
-
-/* Контент поверх картинки */
 
 .hero > * {
     position: relative;
@@ -208,11 +707,12 @@ body {
 
 
 /* ========================
-   HERO TOP
+   HERO TOP / BOTTOM
 ======================== */
 
 .hero-top,
 .hero-bottom {
+
     display: flex;
 
     justify-content: space-between;
@@ -275,17 +775,23 @@ body {
 
 
 /* ========================
-   HERO ANIMATION
+   HERO SHOW
 ======================== */
 
-.hero.show .hero-title h1 {
+.hero.show
+.hero-title h1 {
+
     transform:
         translateY(0);
 }
 
 
-.hero.show .hero-top,
-.hero.show .hero-bottom {
+.hero.show
+.hero-top,
+
+.hero.show
+.hero-bottom {
+
     opacity: 1;
 
     transform:
@@ -293,8 +799,174 @@ body {
 }
 
 
-.hero.show .hero-bottom {
-    transition-delay: 0.2s;
+.hero.show
+.hero-bottom {
+
+    transition-delay:
+        0.2s;
+}
+
+
+
+/* ========================
+   ABOUT
+======================== */
+
+.about {
+    min-height: 100vh;
+
+    padding:
+        100px 40px 50px;
+
+    background: #f2f2f2;
+
+    color: #0a0a0a;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+
+/* ABOUT HEADER */
+
+.about-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-bottom: 25px;
+
+    border-bottom:
+        1px solid
+        rgba(0, 0, 0, 0.25);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+
+/* ABOUT CONTENT */
+
+.about-content {
+    flex: 1;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+    padding:
+        100px 0;
+}
+
+
+
+/* ABOUT TITLE */
+
+.about-title h2 {
+    font-size: clamp(
+        60px,
+        8vw,
+        140px
+    );
+
+    font-weight: 500;
+
+    line-height: 0.82;
+
+    letter-spacing: -6px;
+}
+
+
+
+/* ABOUT RIGHT */
+
+.about-right {
+    max-width: 500px;
+}
+
+
+.about-description {
+    font-size: clamp(
+        18px,
+        2vw,
+        28px
+    );
+
+    line-height: 1.4;
+
+    letter-spacing: -0.5px;
+}
+
+
+
+/* ABOUT DETAILS */
+
+.about-details {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 40px;
+
+    margin-top: 80px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid
+        rgba(0, 0, 0, 0.25);
+}
+
+
+.about-label {
+    display: block;
+
+    margin-bottom: 20px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.5;
+}
+
+
+.about-detail p {
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    letter-spacing: 1px;
+}
+
+
+
+/* ABOUT BOTTOM */
+
+.about-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid
+        rgba(0, 0, 0, 0.25);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
 }
 
 
@@ -332,9 +1004,6 @@ body {
 }
 
 
-
-/* Збільшений курсор */
-
 .cursor.active {
     width: 50px;
 
@@ -345,21 +1014,13 @@ body {
 }
 
 
-
-/* ========================
-   WHITE CURSOR
-======================== */
-
 .cursor.light {
-    background: #ffffff;
+    background:
+        #ffffff;
 }
 
 
 .cursor.light.active {
-    width: 50px;
-
-    height: 50px;
-
     background:
         rgba(255, 255, 255, 0.25);
 }
@@ -372,13 +1033,11 @@ body {
 
 @media (pointer: fine) {
 
-    body {
-        cursor: none;
-    }
-
-
+    body,
     a,
-    button {
+    button,
+    .project-card {
+
         cursor: none;
     }
 
@@ -387,7 +1046,7 @@ body {
 
 
 /* ========================
-   TOUCH DEVICES
+   TOUCH
 ======================== */
 
 @media (pointer: coarse) {
@@ -409,18 +1068,19 @@ body {
 
     min-height: 100vh;
 
-    padding: 120px 40px;
+    padding:
+        120px 40px;
 
-    background: #0a0a0a;
+    background:
+        #0a0a0a;
 
-    color: #ffffff;
+    color:
+        #ffffff;
 }
 
 
 
-/* ========================
-   PROJECTS HEADER
-======================== */
+/* PROJECT HEADER */
 
 .projects-header {
     display: flex;
@@ -466,12 +1126,10 @@ body {
     grid-template-columns:
         repeat(2, 1fr);
 
-    gap: 100px 30px;
+    gap:
+        100px 30px;
 }
 
-
-
-/* Третя картка на всю ширину */
 
 .project-card:nth-child(3) {
     grid-column:
@@ -489,17 +1147,10 @@ body {
 }
 
 
-
-/* ========================
-   PROJECT META
-======================== */
-
 .project-meta {
     display: flex;
 
     justify-content: space-between;
-
-    align-items: center;
 
     margin-bottom: 15px;
 
@@ -521,11 +1172,13 @@ body {
 
     width: 100%;
 
-    aspect-ratio: 16 / 10;
+    aspect-ratio:
+        16 / 10;
 
     overflow: hidden;
 
-    background: #181818;
+    background:
+        #181818;
 }
 
 
@@ -570,11 +1223,6 @@ body {
 }
 
 
-
-/* ========================
-   PROJECT TITLE
-======================== */
-
 .project-card-bottom h3 {
     font-size: clamp(
         30px,
@@ -590,11 +1238,6 @@ body {
 }
 
 
-
-/* ========================
-   PROJECT DESCRIPTION
-======================== */
-
 .project-card-bottom p {
     margin-top: 12px;
 
@@ -605,11 +1248,6 @@ body {
     opacity: 0.5;
 }
 
-
-
-/* ========================
-   PROJECT ARROW
-======================== */
 
 .project-card-arrow {
     flex-shrink: 0;
@@ -630,6 +1268,7 @@ body {
 
 .project-card:hover
 .project-image img {
+
     transform:
         scale(1.06);
 }
@@ -637,6 +1276,7 @@ body {
 
 .project-card:hover
 .project-card-arrow {
+
     transform:
         rotate(45deg);
 }
@@ -673,13 +1313,43 @@ body {
 
     /* LOADER */
 
-    .loader-content {
+    .loader {
         padding: 20px;
     }
 
 
-    .loader-percent {
-        letter-spacing: -4px;
+    .build-stage {
+        min-height: 70vh;
+    }
+
+
+    .build-line {
+        font-size: clamp(
+            52px,
+            17vw,
+            100px
+        );
+
+        line-height: 0.8;
+
+        letter-spacing: -5px;
+    }
+
+
+    .builder {
+        transform:
+            translate(-50%, -50%)
+            scale(0.7);
+
+        transform-origin:
+            center bottom;
+    }
+
+
+    .loader-bottom {
+        font-size: 8px;
+
+        gap: 20px;
     }
 
 
@@ -688,19 +1358,6 @@ body {
 
     .hero {
         padding: 20px;
-    }
-
-
-    .hero::before {
-        background-size: cover;
-
-        background-position: center;
-
-        filter: none;
-
-        opacity: 1;
-
-        transform: none;
     }
 
 
@@ -717,7 +1374,50 @@ body {
 
     .hero-top,
     .hero-bottom {
+
         font-size: 10px;
+    }
+
+
+
+    /* ABOUT */
+
+    .about {
+        min-height: auto;
+
+        padding:
+            70px 20px 30px;
+    }
+
+
+    .about-content {
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+
+        padding:
+            70px 0;
+    }
+
+
+    .about-title h2 {
+        font-size: 15vw;
+
+        line-height: 0.85;
+
+        letter-spacing: -4px;
+    }
+
+
+    .about-description {
+        font-size: 20px;
+    }
+
+
+    .about-details {
+        margin-top: 50px;
+
+        gap: 20px;
     }
 
 
@@ -748,7 +1448,8 @@ body {
 
 
     .project-image {
-        aspect-ratio: 4 / 3;
+        aspect-ratio:
+            4 / 3;
     }
 
 
@@ -782,6 +1483,13 @@ body {
         font-size: 17vw;
 
         letter-spacing: -3px;
+    }
+
+
+    .build-line {
+        font-size: 16vw;
+
+        letter-spacing: -4px;
     }
 
 
