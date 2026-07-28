@@ -3,408 +3,61 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Interior Portfolio</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Portfolio</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
-    <!-- CUSTOM CURSOR -->
+
+    <!-- ========================
+         CUSTOM CURSOR
+    ========================= -->
+
     <div class="cursor"></div>
 
 
-    <!-- ==================================================
-         INTERIOR DRAWING LOADER
-    =================================================== -->
 
-    <div class="loader" id="loader">
+    <!-- ========================
+         LOADER
+    ========================= -->
 
-        <div class="loader-top">
-            <span>INTERIOR / PORTFOLIO</span>
-            <span class="loader-status">DRAWING SPACE</span>
-        </div>
+    <div class="loader">
 
+        <div class="loader-content">
 
-        <div class="loader-scene">
+            <h1 class="loader-logo">
+                PORTFOLIO
+            </h1>
 
 
-            <!-- DARK LAYER -->
-            <div class="loader-dark"></div>
+            <div class="loader-bottom">
 
+                <div class="loader-info">
 
-            <!-- SVG DRAWING -->
-            <svg
-                class="loader-drawing"
-                viewBox="0 0 1840 800"
-                preserveAspectRatio="xMidYMid slice"
-                aria-hidden="true"
-            >
+                    <span>LOADING</span>
 
-                <!-- ==============================
-                     WALL / ROOM
-                =============================== -->
+                    <span class="loader-percent">
+                        0%
+                    </span>
 
-                <path
-                    class="draw-line line-room"
-                    d="M35 445 L35 45"
-                />
+                </div>
 
-                <path
-                    class="draw-line line-room"
-                    d="M1805 45 L1805 760"
-                />
 
+                <div class="loader-line">
 
-                <!-- ==============================
-                     LEFT LARGE POSTER
-                =============================== -->
+                    <div class="loader-line-progress"></div>
 
-                <rect
-                    class="draw-line line-poster"
-                    x="675"
-                    y="0"
-                    width="338"
-                    height="375"
-                />
+                </div>
 
-                <circle
-                    class="draw-line line-circle"
-                    cx="843"
-                    cy="108"
-                    r="102"
-                />
-
-                <line
-                    class="draw-line detail-line"
-                    x1="707"
-                    y1="300"
-                    x2="977"
-                    y2="300"
-                />
-
-
-                <!-- ==============================
-                     RIGHT LARGE POSTER
-                =============================== -->
-
-                <rect
-                    class="draw-line line-poster"
-                    x="1148"
-                    y="0"
-                    width="336"
-                    height="367"
-                />
-
-                <circle
-                    class="draw-line line-circle"
-                    cx="1317"
-                    cy="143"
-                    r="94"
-                />
-
-                <line
-                    class="draw-line detail-line"
-                    x1="1188"
-                    y1="333"
-                    x2="1450"
-                    y2="333"
-                />
-
-
-                <!-- ==============================
-                     LEFT SHELVES
-                =============================== -->
-
-                <path
-                    class="draw-line furniture-line"
-                    d="M221 45 L466 45 L466 100 L221 100 Z"
-                />
-
-                <path
-                    class="draw-line furniture-line"
-                    d="M220 281 L466 281 L466 335 L220 335 Z"
-                />
-
-                <rect
-                    class="draw-line detail-line"
-                    x="256"
-                    y="207"
-                    width="164"
-                    height="130"
-                />
-
-
-                <!-- ==============================
-                     PENDANT LIGHTS
-                =============================== -->
-
-                <line
-                    class="draw-line light-line"
-                    x1="132"
-                    y1="0"
-                    x2="132"
-                    y2="178"
-                />
-
-                <path
-                    class="draw-line light-line"
-                    d="M34 178 Q132 163 245 185"
-                />
-
-                <line
-                    class="draw-line light-line"
-                    x1="256"
-                    y1="0"
-                    x2="256"
-                    y2="211"
-                />
-
-                <path
-                    class="draw-line light-line"
-                    d="M164 213 Q256 197 350 221"
-                />
-
-
-                <!-- ==============================
-                     LEFT COUNTER
-                =============================== -->
-
-                <path
-                    class="draw-line furniture-line"
-                    d="M34 446 L465 446 L465 568 L34 568"
-                />
-
-                <path
-                    class="draw-line furniture-line"
-                    d="M34 516 L465 516"
-                />
-
-
-                <!-- ==============================
-                     LONG CONSOLE
-                =============================== -->
-
-                <path
-                    class="draw-line main-furniture"
-                    d="M568 529
-                       L1592 529
-                       L1592 704
-                       L568 704
-                       Z"
-                />
-
-                <line
-                    class="draw-line furniture-line"
-                    x1="842"
-                    y1="530"
-                    x2="842"
-                    y2="704"
-                />
-
-                <line
-                    class="draw-line furniture-line"
-                    x1="1055"
-                    y1="530"
-                    x2="1055"
-                    y2="704"
-                />
-
-                <line
-                    class="draw-line furniture-line"
-                    x1="1320"
-                    y1="530"
-                    x2="1320"
-                    y2="704"
-                />
-
-
-                <!-- ==============================
-                     TABLE
-                =============================== -->
-
-                <path
-                    class="draw-line main-furniture"
-                    d="M997 590
-                       Q1230 565 1535 590
-                       Q1280 647 997 621
-                       Z"
-                />
-
-                <line
-                    class="draw-line furniture-line"
-                    x1="1115"
-                    y1="625"
-                    x2="1090"
-                    y2="800"
-                />
-
-                <line
-                    class="draw-line furniture-line"
-                    x1="1380"
-                    y1="625"
-                    x2="1410"
-                    y2="800"
-                />
-
-
-                <!-- ==============================
-                     FRONT LEFT CHAIR
-                =============================== -->
-
-                <path
-                    class="draw-line chair-line"
-                    d="M760 600
-                       Q730 570 755 560
-                       Q810 545 846 585"
-                />
-
-                <path
-                    class="draw-line chair-line"
-                    d="M758 600
-                       L691 665
-                       Q672 690 689 713
-                       L749 772"
-                />
-
-                <path
-                    class="draw-line chair-line"
-                    d="M846 585
-                       L934 612
-                       L952 684"
-                />
-
-                <path
-                    class="draw-line chair-line"
-                    d="M700 673
-                       Q770 645 851 670
-                       Q885 682 882 730
-                       L870 800"
-                />
-
-
-                <!-- ==============================
-                     RIGHT CHAIR
-                =============================== -->
-
-                <path
-                    class="draw-line chair-line"
-                    d="M1480 580
-                       Q1605 552 1695 584
-                       Q1735 598 1715 632"
-                />
-
-                <path
-                    class="draw-line chair-line"
-                    d="M1485 584
-                       L1445 632
-                       L1418 740"
-                />
-
-                <path
-                    class="draw-line chair-line"
-                    d="M1715 632
-                       L1675 705
-                       L1640 800"
-                />
-
-                <path
-                    class="draw-line chair-line"
-                    d="M1460 708
-                       Q1580 680 1695 725"
-                />
-
-
-                <!-- ==============================
-                     LEFT BAR CHAIR
-                =============================== -->
-
-                <path
-                    class="draw-line chair-line"
-                    d="M339 520
-                       Q372 480 425 493
-                       L473 510
-                       L470 620"
-                />
-
-                <line
-                    class="draw-line chair-line"
-                    x1="352"
-                    y1="570"
-                    x2="350"
-                    y2="800"
-                />
-
-                <line
-                    class="draw-line chair-line"
-                    x1="445"
-                    y1="565"
-                    x2="455"
-                    y2="800"
-                />
-
-
-                <!-- ==============================
-                     TABLE OBJECTS
-                =============================== -->
-
-                <ellipse
-                    class="draw-line detail-line"
-                    cx="1395"
-                    cy="587"
-                    rx="70"
-                    ry="15"
-                />
-
-                <path
-                    class="draw-line detail-line"
-                    d="M1180 579 L1290 579 L1315 595 L1170 595 Z"
-                />
-
-
-                <!-- ==============================
-                     DECOR / LAMP
-                =============================== -->
-
-                <path
-                    class="draw-line detail-line"
-                    d="M925 525
-                       L925 455
-                       Q925 410 962 410
-                       Q1000 410 1000 455
-                       L1000 525"
-                />
-
-                <line
-                    class="draw-line detail-line"
-                    x1="962"
-                    y1="390"
-                    x2="962"
-                    y2="525"
-                />
-
-            </svg>
-
-
-            <!-- RED ACCENTS -->
-            <div class="loader-red loader-red-one"></div>
-            <div class="loader-red loader-red-two"></div>
-
-
-
-        </div>
-
-
-        <div class="loader-bottom">
-
-            <span class="loader-step">
-                01 / STRUCTURE
-            </span>
-
-            <div class="loader-progress">
-                <div class="loader-progress-fill"></div>
             </div>
 
         </div>
@@ -412,11 +65,13 @@
     </div>
 
 
-    <!-- ==================================================
+
+    <!-- ========================
          HERO
-    =================================================== -->
+    ========================= -->
 
     <main class="hero">
+
 
         <div class="hero-top">
 
@@ -425,10 +80,11 @@
             </span>
 
             <span>
-                INTERIOR / DESIGN
+                WEB DEVELOPER
             </span>
 
         </div>
+
 
 
         <div class="hero-title">
@@ -436,7 +92,7 @@
             <div class="hero-title-mask">
 
                 <h1>
-                   BY BOHDAN
+                    YOUR NAME
                 </h1>
 
             </div>
@@ -444,105 +100,35 @@
         </div>
 
 
+
         <div class="hero-bottom">
 
             <span>
-                CREATE YOUR INTERIOR
+                SCROLL TO EXPLORE
             </span>
 
-            <a href="#projects">
-                VIEW PROJECTS ↓
-            </a>
+            <span>
+                ↓
+            </span>
 
         </div>
+
 
     </main>
 
 
-    <!-- ==================================================
-         ABOUT
-    =================================================== -->
 
-    <section class="about" id="about">
-
-        <div class="section-header">
-
-            <span>ABOUT</span>
-
-            <span>(01)</span>
-
-        </div>
-
-
-        <div class="about-content">
-
-            <div class="about-title">
-
-                <h2>
-                    СТВОРЕННЯ<br>
-                    ДИЗАЙНУ<br>
-                    З ХАРАКТЕРОМ.
-                </h2>
-
-            </div>
-
-
-            <div class="about-right">
-
-                <p class="about-description">
-                    Я створюю сучасні інтер'єри, у яких
-                    поєднуються функціональність,
-                    мінімалізм та характер простору.
-                </p>
-
-                <p class="about-description secondary">
-                    Кожен проєкт — це пошук балансу між
-                    архітектурою, матеріалами, світлом
-                    та способом життя людини.
-                </p>
-
-
-                <div class="about-details">
-
-                    <div>
-
-                        <span>FOCUS</span>
-
-                        <p>
-                            INTERIOR DESIGN<br>
-                            VISUALIZATION<br>
-                            CONCEPT
-                        </p>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>BASED</span>
-
-                        <p>
-                            UKRAINE<br>
-                            AVAILABLE<br>
-                            WORLDWIDE
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ==================================================
+    <!-- ========================
          PROJECTS
-    =================================================== -->
+    ========================= -->
 
-    <section class="projects" id="projects">
+    <section
+        class="projects"
+        id="projects"
+    >
+
+
+        <!-- HEADER -->
 
         <div class="projects-header">
 
@@ -551,27 +137,38 @@
             </h2>
 
             <span>
-                (01 — 04)
+                (01 — 03)
             </span>
 
         </div>
 
 
+
+        <!-- PROJECT GRID -->
+
         <div class="projects-grid">
 
 
-            <!-- PROJECT 01 -->
+            <!-- ========================
+                 PROJECT 01
+            ========================= -->
 
-            <article
-                class="project-card project-link"
-                data-project="project-1.html"
-                data-title="PROJECT ONE"
-            >
+            <article class="project-card">
+
 
                 <div class="project-meta">
-                    <span>01</span>
-                    <span>2026</span>
+
+                    <span>
+                        01
+                    </span>
+
+                    <span>
+                        2026
+                    </span>
+
                 </div>
+
+
 
                 <div class="project-image">
 
@@ -582,37 +179,56 @@
 
                 </div>
 
+
+
                 <div class="project-card-bottom">
 
-                    <div>
 
-                        <h3>PROJECT ONE</h3>
+                    <div class="project-text">
+
+                        <h3>
+                            PROJECT ONE
+                        </h3>
 
                         <p>
-                            RESIDENTIAL / INTERIOR
+                            WEB DESIGN / DEVELOPMENT
                         </p>
 
                     </div>
 
-                    <span class="project-arrow">↗</span>
+
+                    <span class="project-card-arrow">
+                        ↗
+                    </span>
+
 
                 </div>
+
 
             </article>
 
 
-            <!-- PROJECT 02 -->
 
-            <article
-                class="project-card project-link"
-                data-project="project-2.html"
-                data-title="PROJECT TWO"
-            >
+            <!-- ========================
+                 PROJECT 02
+            ========================= -->
+
+            <article class="project-card">
+
 
                 <div class="project-meta">
-                    <span>02</span>
-                    <span>2026</span>
+
+                    <span>
+                        02
+                    </span>
+
+                    <span>
+                        2026
+                    </span>
+
                 </div>
+
+
 
                 <div class="project-image">
 
@@ -623,37 +239,56 @@
 
                 </div>
 
+
+
                 <div class="project-card-bottom">
 
-                    <div>
 
-                        <h3>PROJECT TWO</h3>
+                    <div class="project-text">
+
+                        <h3>
+                            PROJECT TWO
+                        </h3>
 
                         <p>
-                            APARTMENT / INTERIOR
+                            FRONTEND / UI
                         </p>
 
                     </div>
 
-                    <span class="project-arrow">↗</span>
+
+                    <span class="project-card-arrow">
+                        ↗
+                    </span>
+
 
                 </div>
+
 
             </article>
 
 
-            <!-- PROJECT 03 -->
 
-            <article
-                class="project-card project-link"
-                data-project="project-3.html"
-                data-title="PROJECT THREE"
-            >
+            <!-- ========================
+                 PROJECT 03
+            ========================= -->
+
+            <article class="project-card">
+
 
                 <div class="project-meta">
-                    <span>03</span>
-                    <span>2026</span>
+
+                    <span>
+                        03
+                    </span>
+
+                    <span>
+                        2026
+                    </span>
+
                 </div>
+
+
 
                 <div class="project-image">
 
@@ -664,123 +299,46 @@
 
                 </div>
 
+
+
                 <div class="project-card-bottom">
 
-                    <div>
 
-                        <h3>PROJECT THREE</h3>
+                    <div class="project-text">
+
+                        <h3>
+                            PROJECT THREE
+                        </h3>
 
                         <p>
-                            HOUSE / INTERIOR
+                            WEBSITE / DEVELOPMENT
                         </p>
 
                     </div>
 
-                    <span class="project-arrow">↗</span>
+
+                    <span class="project-card-arrow">
+                        ↗
+                    </span>
+
 
                 </div>
+
 
             </article>
 
-
-            <!-- PROJECT 04 -->
-
-            <article
-                class="project-card project-link"
-                data-project="project-4.html"
-                data-title="PROJECT FOUR"
-            >
-
-                <div class="project-meta">
-                    <span>04</span>
-                    <span>2026</span>
-                </div>
-
-                <div class="project-image">
-
-                    <img
-                        src="assets/images/project-4.jpg"
-                        alt="Project Four"
-                    >
-
-                </div>
-
-                <div class="project-card-bottom">
-
-                    <div>
-
-                        <h3>PROJECT FOUR</h3>
-
-                        <p>
-                            COMMERCIAL / INTERIOR
-                        </p>
-
-                    </div>
-
-                    <span class="project-arrow">↗</span>
-
-                </div>
-
-            </article>
 
         </div>
+
 
     </section>
 
 
-    <!-- ==================================================
-         FOOTER
-    =================================================== -->
 
-    <footer class="footer">
-
-        <div class="footer-top">
-
-            <span>HAVE A PROJECT?</span>
-
-            <span>CONTACT</span>
-
-        </div>
-
-
-        <h2>
-            LET'S CREATE
-        </h2>
-
-
-        <div class="footer-bottom">
-
-            <span>© 2026</span>
-
-            <span>UKRAINE</span>
-
-        </div>
-
-    </footer>
-
-
-    <!-- ==================================================
-         PAGE TRANSITION
-    =================================================== -->
-
-    <div class="page-transition">
-
-        <div class="transition-content">
-
-            <span>
-                OPENING PROJECT
-            </span>
-
-            <h2>
-                PROJECT
-            </h2>
-
-        </div>
-
-    </div>
-
+    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
+
 
 </body>
 

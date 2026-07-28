@@ -1,32 +1,15 @@
-// ==================================================
-// WAIT
-// ==================================================
-
-function wait(ms) {
-
-    return new Promise((resolve) => {
-
-        setTimeout(resolve, ms);
-
-    });
-}
-
-
-// ==================================================
+// ========================
 // ELEMENTS
-// ==================================================
+// ========================
 
 const loader =
     document.querySelector(".loader");
 
-const loaderStatus =
-    document.querySelector(".loader-status");
+const percent =
+    document.querySelector(".loader-percent");
 
-const loaderStep =
-    document.querySelector(".loader-step");
-
-const progressFill =
-    document.querySelector(".loader-progress-fill");
+const progressLine =
+    document.querySelector(".loader-line-progress");
 
 const hero =
     document.querySelector(".hero");
@@ -34,453 +17,214 @@ const hero =
 const cursor =
     document.querySelector(".cursor");
 
-const pageTransition =
-    document.querySelector(".page-transition");
+const projectsSection =
+    document.querySelector(".projects");
 
 
-// ==================================================
-// PROGRESS
-// ==================================================
 
-function setProgress(value) {
+// ========================
+// LOADER
+// ========================
 
-    if (progressFill) {
+let progress = 0;
 
-        progressFill.style.width =
-            value + "%";
-    }
-}
 
+// Забороняємо скрол,
+// поки працює loader
 
-// ==================================================
-// TEXT
-// ==================================================
+document.body.style.overflow = "hidden";
 
-function setStep(text) {
 
-    if (loaderStep) {
+const loading = setInterval(() => {
 
-        loaderStep.textContent =
-            text;
-    }
-}
+    progress++;
 
 
-// ==================================================
-// START LOADER
-// ==================================================
+    // Цифри
 
-async function startLoader() {
+    percent.textContent =
+        progress + "%";
 
-    if (!loader) {
 
-        if (hero) {
+    // Лінія
 
-            hero.classList.add("show");
-        }
+    progressLine.style.width =
+        progress + "%";
 
-        return;
-    }
 
+    // Кінець завантаження
 
-    // Lock page
+    if (progress >= 100) {
 
-    document.body.style.overflow =
-        "hidden";
+        clearInterval(loading);
 
 
-    // ==================================================
-    // START
-    // ==================================================
+        setTimeout(() => {
 
-    setProgress(0);
 
-    setStep(
-        "01 / STRUCTURE"
-    );
+            // Loader їде вгору
 
+            loader.style.transition =
+                "transform 1s cubic-bezier(0.76, 0, 0.24, 1)";
 
-    await wait(250);
 
+            loader.style.transform =
+                "translateY(-100%)";
 
-    // ==================================================
-    // STAGE 1
-    // ROOM STRUCTURE
-    // ==================================================
 
-    loader.classList.add(
-        "stage-1"
-    );
 
-    setProgress(15);
+            // Запускаємо HERO
 
+            setTimeout(() => {
 
-    await wait(500);
+                hero.classList.add("show");
 
+            }, 300);
 
-    // ==================================================
-    // STAGE 2
-    // ART / POSTERS
-    // ==================================================
 
-    setStep(
-        "02 / ART"
-    );
 
-    loader.classList.add(
-        "stage-2"
-    );
+            // Повертаємо скрол
 
-    setProgress(32);
+            document.body.style.overflow =
+                "auto";
 
 
-    await wait(520);
+        }, 500);
 
-
-    // ==================================================
-    // STAGE 3
-    // MAIN FURNITURE
-    // ==================================================
-
-    setStep(
-        "03 / FURNITURE"
-    );
-
-    loader.classList.add(
-        "stage-3"
-    );
-
-    setProgress(55);
-
-
-    await wait(600);
-
-
-    // ==================================================
-    // STAGE 4
-    // CHAIRS
-    // ==================================================
-
-    setStep(
-        "04 / OBJECTS"
-    );
-
-    loader.classList.add(
-        "stage-4"
-    );
-
-    setProgress(72);
-
-
-    await wait(500);
-
-
-    // ==================================================
-    // STAGE 5
-    // DETAILS
-    // ==================================================
-
-    setStep(
-        "05 / DETAILS"
-    );
-
-    loader.classList.add(
-        "stage-5"
-    );
-
-    setProgress(88);
-
-
-    // Даємо оригінальним лініям
-    // повністю домалюватися
-
-    await wait(600);
-
-
-    // ==================================================
-    // COMPLETE
-    // ==================================================
-
-    setProgress(100);
-
-    setStep(
-        "06 / COMPLETE"
-    );
-
-
-    if (loaderStatus) {
-
-        loaderStatus.textContent =
-            "SPACE COMPLETE";
     }
 
 
-    // Дуже коротко бачимо
-    // повністю готове креслення
-
-    await wait(180);
+}, 25);
 
 
-    // ==================================================
-    // HERO START
-    // ==================================================
 
-    if (hero) {
+// ========================
+// CUSTOM CURSOR
+// ========================
 
-        hero.classList.add(
-            "show"
-        );
-    }
+let mouseX = 0;
 
+let mouseY = 0;
 
-    // ==================================================
-    // LOADER FADE OUT
-    // ==================================================
+let cursorX = 0;
 
-    // Ніякого фото.
-    // Ніякого flash.
-    // Ніякого руху вверх.
-    //
-    // Весь старий малюнок просто
-    // плавно стає прозорим.
-
-    loader.classList.add(
-        "exit"
-    );
+let cursorY = 0;
 
 
-    document.body.style.overflow =
-        "auto";
 
+// Отримуємо позицію мишки
 
-    await wait(450);
+document.addEventListener(
+    "mousemove",
+    (event) => {
 
+        mouseX = event.clientX;
 
-    // ==================================================
-    // REMOVE LOADER
-    // ==================================================
-
-    loader.style.display =
-        "none";
-}
-
-
-// ==================================================
-// START WHEN EVERYTHING IS LOADED
-// ==================================================
-
-window.addEventListener(
-    "load",
-    () => {
-
-        startLoader();
+        mouseY = event.clientY;
 
     }
 );
 
 
-// ==================================================
-// CUSTOM CURSOR
-// ==================================================
 
-if (cursor) {
+// ========================
+// SMOOTH CURSOR
+// ========================
 
-    let mouseX = 0;
-    let mouseY = 0;
+function animateCursor() {
 
-    let cursorX = 0;
-    let cursorY = 0;
+    cursorX +=
+        (mouseX - cursorX) * 0.15;
 
 
-    document.addEventListener(
-        "mousemove",
-        (event) => {
+    cursorY +=
+        (mouseY - cursorY) * 0.15;
 
-            mouseX =
-                event.clientX;
 
-            mouseY =
-                event.clientY;
+    cursor.style.left =
+        cursorX + "px";
 
-        }
+
+    cursor.style.top =
+        cursorY + "px";
+
+
+    requestAnimationFrame(
+        animateCursor
     );
 
-
-    function animateCursor() {
-
-        cursorX +=
-            (
-                mouseX -
-                cursorX
-            ) * 0.2;
-
-
-        cursorY +=
-            (
-                mouseY -
-                cursorY
-            ) * 0.2;
-
-
-        cursor.style.left =
-            cursorX + "px";
-
-
-        cursor.style.top =
-            cursorY + "px";
-
-
-        requestAnimationFrame(
-            animateCursor
-        );
-    }
-
-
-    animateCursor();
-
-
-    // ==================================================
-    // HOVER
-    // ==================================================
-
-    const interactiveElements =
-        document.querySelectorAll(
-            "a, button, .project-card"
-        );
-
-
-    interactiveElements.forEach(
-        (element) => {
-
-            element.addEventListener(
-                "mouseenter",
-                () => {
-
-                    cursor.classList.add(
-                        "active"
-                    );
-
-                }
-            );
-
-
-            element.addEventListener(
-                "mouseleave",
-                () => {
-
-                    cursor.classList.remove(
-                        "active"
-                    );
-
-                }
-            );
-
-        }
-    );
-
-
-    // ==================================================
-    // WHITE CURSOR ON DARK AREAS
-    // ==================================================
-
-    const darkSections =
-        document.querySelectorAll(
-            ".loader, .projects"
-        );
-
-
-    darkSections.forEach(
-        (section) => {
-
-            section.addEventListener(
-                "mouseenter",
-                () => {
-
-                    cursor.classList.add(
-                        "light"
-                    );
-
-                }
-            );
-
-
-            section.addEventListener(
-                "mouseleave",
-                () => {
-
-                    cursor.classList.remove(
-                        "light"
-                    );
-
-                }
-            );
-
-        }
-    );
 }
 
 
-// ==================================================
-// PROJECT TRANSITION
-// ==================================================
+animateCursor();
 
-const projectLinks =
+
+
+// ========================
+// INTERACTIVE CURSOR
+// ========================
+
+const interactiveElements =
     document.querySelectorAll(
-        ".project-link"
+        "a, button, .project-card"
     );
 
 
-projectLinks.forEach(
-    (project) => {
-
-        project.addEventListener(
-            "click",
-            async () => {
-
-                const url =
-                    project.dataset.project;
+interactiveElements.forEach(
+    (element) => {
 
 
-                const title =
-                    project.dataset.title;
+        element.addEventListener(
+            "mouseenter",
+            () => {
 
-
-                if (!url) {
-                    return;
-                }
-
-
-                const transitionTitle =
-                    document.querySelector(
-                        ".transition-content h2"
-                    );
-
-
-                if (
-                    transitionTitle &&
-                    title
-                ) {
-
-                    transitionTitle.textContent =
-                        title;
-                }
-
-
-                if (pageTransition) {
-
-                    pageTransition.classList.add(
-                        "active"
-                    );
-
-
-                    await wait(750);
-                }
-
-
-                window.location.href =
-                    url;
+                cursor.classList.add(
+                    "active"
+                );
 
             }
+        );
+
+
+        element.addEventListener(
+            "mouseleave",
+            () => {
+
+                cursor.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+    }
+);
+
+
+
+// ========================
+// WHITE CURSOR IN PROJECTS
+// ========================
+
+projectsSection.addEventListener(
+    "mouseenter",
+    () => {
+
+        cursor.classList.add(
+            "light"
+        );
+
+    }
+);
+
+
+projectsSection.addEventListener(
+    "mouseleave",
+    () => {
+
+        cursor.classList.remove(
+            "light"
         );
 
     }
