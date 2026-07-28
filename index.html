@@ -3,61 +3,666 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Portfolio</title>
+    <title>Interior Portfolio</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
 
-
-    <!-- ========================
-         CUSTOM CURSOR
-    ========================= -->
-
+    <!-- CUSTOM CURSOR -->
     <div class="cursor"></div>
 
 
+    <!-- ==================================================
+         INTERIOR DRAWING LOADER
+    =================================================== -->
 
-    <!-- ========================
-         LOADER
-    ========================= -->
+    <div class="loader" id="loader">
 
-    <div class="loader">
-
-        <div class="loader-content">
-
-            <h1 class="loader-logo">
-                PORTFOLIO
-            </h1>
+        <div class="loader-top">
+            <span>INTERIOR / PORTFOLIO</span>
+            <span class="loader-status">DRAWING SPACE</span>
+        </div>
 
 
-            <div class="loader-bottom">
-
-                <div class="loader-info">
-
-                    <span>LOADING</span>
-
-                    <span class="loader-percent">
-                        0%
-                    </span>
-
-                </div>
+        <div class="loader-scene">
 
 
-                <div class="loader-line">
+            <!-- DARK LAYER -->
+            <div class="loader-dark"></div>
 
-                    <div class="loader-line-progress"></div>
 
-                </div>
+            <!-- SVG DRAWING -->
+            <svg
+                class="loader-drawing"
+                viewBox="0 0 1840 800"
+                preserveAspectRatio="xMidYMid slice"
+                aria-hidden="true"
+            >
 
+                <!-- ==============================
+                     WALL / ROOM
+                =============================== -->
+
+                <path
+                    class="draw-line line-room"
+                    d="M35 445 L35 45"
+                />
+
+                <path
+                    class="draw-line line-room"
+                    d="M1805 45 L1805 760"
+                />
+
+
+      <!-- ==============================
+     LEFT LARGE POSTER
+================================ -->
+
+<!-- рамка -->
+
+<rect
+    class="draw-line line-poster"
+    x="675"
+    y="0"
+    width="338"
+    height="375"
+/>
+
+<!-- велике червоне коло -->
+
+<circle
+    class="red-circle"
+    cx="845"
+    cy="135"
+    r="108"
+    fill="#8f1d16"
+/>
+
+<!-- обрізання вертикальних рисок -->
+
+<defs>
+
+    <clipPath id="leftPosterClip">
+
+        <circle
+            cx="845"
+            cy="210"
+            r="104"
+        />
+
+    </clipPath>
+
+</defs>
+
+<!-- вертикальні риски -->
+
+<g clip-path="url(#leftPosterClip)">
+
+<line class="draw-line detail-line" x1="718" y1="118" x2="718" y2="302"/>
+
+<line class="draw-line detail-line" x1="736" y1="105" x2="736" y2="314"/>
+
+<line class="draw-line detail-line" x1="754" y1="94" x2="754" y2="324"/>
+
+<line class="draw-line detail-line" x1="772" y1="84" x2="772" y2="333"/>
+
+<line class="draw-line detail-line" x1="790" y1="77" x2="790" y2="340"/>
+
+<line class="draw-line detail-line" x1="808" y1="72" x2="808" y2="347"/>
+
+<line class="draw-line detail-line" x1="826" y1="69" x2="826" y2="350"/>
+
+<line class="draw-line detail-line" x1="844" y1="68" x2="844" y2="352"/>
+
+<line class="draw-line detail-line" x1="862" y1="69" x2="862" y2="350"/>
+
+<line class="draw-line detail-line" x1="880" y1="72" x2="880" y2="347"/>
+
+<line class="draw-line detail-line" x1="898" y1="77" x2="898" y2="340"/>
+
+<line class="draw-line detail-line" x1="916" y1="84" x2="916" y2="333"/>
+
+<line class="draw-line detail-line" x1="934" y1="94" x2="934" y2="324"/>
+
+<line class="draw-line detail-line" x1="952" y1="105" x2="952" y2="314"/>
+
+<line class="draw-line detail-line" x1="970" y1="118" x2="970" y2="302"/>
+
+</g>
+
+<!-- нижня горизонтальна лінія -->
+
+<line
+    class="draw-line detail-line"
+    x1="720"
+    y1="338"
+    x2="970"
+    y2="338"
+/>
+
+
+           <!-- ==============================
+     RIGHT LARGE POSTER
+================================ -->
+
+<!-- Рамка -->
+<rect
+    class="draw-line line-poster"
+    x="1148"
+    y="0"
+    width="336"
+    height="367"/>
+
+<!-- Вертикальні лінії -->
+
+ <defs>
+
+    <mask id="posterMask">
+
+        <rect
+            x="0"
+            y="0"
+            width="1840"
+            height="800"
+            fill="white"/>
+
+        <circle
+            cx="1317"
+            cy="143"
+            r="98"
+            fill="black"/>
+
+    </mask>
+
+</defs>
+<g mask="url(#posterMask)">
+
+    <line class="draw-line detail-line" x1="1184" y1="0" x2="1184" y2="295"/>
+    <line class="draw-line detail-line" x1="1200" y1="0" x2="1200" y2="295"/>
+    <line class="draw-line detail-line" x1="1216" y1="0" x2="1216" y2="295"/>
+    <line class="draw-line detail-line" x1="1232" y1="0" x2="1232" y2="295"/>
+    <line class="draw-line detail-line" x1="1248" y1="0" x2="1248" y2="295"/>
+    <line class="draw-line detail-line" x1="1264" y1="0" x2="1264" y2="295"/>
+    <line class="draw-line detail-line" x1="1280" y1="0" x2="1280" y2="295"/>
+    <line class="draw-line detail-line" x1="1296" y1="0" x2="1296" y2="295"/>
+    <line class="draw-line detail-line" x1="1312" y1="0" x2="1312" y2="295"/>
+    <line class="draw-line detail-line" x1="1328" y1="0" x2="1328" y2="295"/>
+    <line class="draw-line detail-line" x1="1344" y1="0" x2="1344" y2="295"/>
+    <line class="draw-line detail-line" x1="1360" y1="0" x2="1360" y2="295"/>
+    <line class="draw-line detail-line" x1="1376" y1="0" x2="1376" y2="295"/>
+    <line class="draw-line detail-line" x1="1392" y1="0" x2="1392" y2="295"/>
+    <line class="draw-line detail-line" x1="1408" y1="0" x2="1408" y2="295"/>
+    <line class="draw-line detail-line" x1="1424" y1="0" x2="1424" y2="295"/>
+    <line class="draw-line detail-line" x1="1440" y1="0" x2="1440" y2="295"/>
+
+</g>
+
+<!-- Червоне коло -->
+<circle
+    class="red-circle"
+    cx="1317"
+    cy="143"
+    r="90"
+    fill="#8f1d16"/>
+
+<!-- Білий контур -->
+<circle
+    class="draw-line line-circle"
+    cx="1317"
+    cy="143"
+    r="98"
+    fill="none"/>
+
+<!-- Нижня горизонтальна лінія -->
+<line
+    class="draw-line detail-line"
+    x1="1188"
+    y1="333"
+    x2="1450"
+    y2="333"/>
+
+
+
+
+                <!-- ==============================
+                     LEFT SHELVES
+                =============================== -->
+
+                <path
+                    class="draw-line furniture-line"
+                    d="M221 45 L466 45 L466 100 L221 100 Z"
+                />
+
+                <path
+                    class="draw-line furniture-line"
+                    d="M220 281 L466 281 L466 335 L220 335 Z"
+                />
+
+                <rect
+                    class="draw-line detail-line"
+                    x="256"
+                    y="207"
+                    width="164"
+                    height="130"
+                />
+
+
+                <!-- ==============================
+                     PENDANT LIGHTS
+                =============================== -->
+
+                <line
+                    class="draw-line light-line"
+                    x1="132"
+                    y1="0"
+                    x2="132"
+                    y2="178"
+                />
+
+                <path
+                    class="draw-line light-line"
+                    d="M34 178 Q132 163 245 185"
+                />
+
+                <line
+                    class="draw-line light-line"
+                    x1="256"
+                    y1="0"
+                    x2="256"
+                    y2="211"
+                />
+
+                <path
+                    class="draw-line light-line"
+                    d="M164 213 Q256 197 350 221"
+                />
+
+
+                <!-- ==============================
+                     LEFT COUNTER
+                =============================== -->
+
+                <path
+                    class="draw-line furniture-line"
+                    d="M34 446 L465 446 L465 568 L34 568"
+                />
+
+                <path
+                    class="draw-line furniture-line"
+                    d="M34 516 L465 516"
+                />
+
+
+                <!-- ==============================
+                     LONG CONSOLE
+                =============================== -->
+
+                <path
+                    class="draw-line main-furniture"
+                    d="M568 529
+                       L1592 529
+                       L1592 704
+                       L568 704
+                       Z"
+                />
+
+                <line
+                    class="draw-line furniture-line"
+                    x1="842"
+                    y1="530"
+                    x2="842"
+                    y2="704"
+                />
+
+                <line
+                    class="draw-line furniture-line"
+                    x1="1055"
+                    y1="530"
+                    x2="1055"
+                    y2="704"
+                />
+
+                <line
+                    class="draw-line furniture-line"
+                    x1="1320"
+                    y1="530"
+                    x2="1320"
+                    y2="704"
+                />
+
+
+                <!-- ==============================
+                     TABLE
+                =============================== -->
+
+                <path
+                    class="draw-line main-furniture"
+                    d="M997 590
+                       Q1230 565 1535 590
+                       Q1280 647 997 621
+                       Z"
+                />
+
+                <line
+                    class="draw-line furniture-line"
+                    x1="1115"
+                    y1="625"
+                    x2="1090"
+                    y2="800"
+                />
+
+                <line
+                    class="draw-line furniture-line"
+                    x1="1380"
+                    y1="625"
+                    x2="1410"
+                    y2="800"
+                />
+
+
+                <!-- ==============================
+                     FRONT LEFT CHAIR
+                =============================== -->
+
+                <path
+                    class="draw-line chair-line"
+                    d="M760 600
+                       Q730 570 755 560
+                       Q810 545 846 585"
+                />
+
+                <path
+                    class="draw-line chair-line"
+                    d="M758 600
+                       L691 665
+                       Q672 690 689 713
+                       L749 772"
+                />
+
+                <path
+                    class="draw-line chair-line"
+                    d="M846 585
+                       L934 612
+                       L952 684"
+                />
+
+                <path
+                    class="draw-line chair-line"
+                    d="M700 673
+                       Q770 645 851 670
+                       Q885 682 882 730
+                       L870 800"
+                />
+
+
+                <!-- ==============================
+                     RIGHT CHAIR
+                =============================== -->
+
+                <path
+                    class="draw-line chair-line"
+                    d="M1480 580
+                       Q1605 552 1695 584
+                       Q1735 598 1715 632"
+                />
+
+                <path
+                    class="draw-line chair-line"
+                    d="M1485 584
+                       L1445 632
+                       L1418 740"
+                />
+
+                <path
+                    class="draw-line chair-line"
+                    d="M1715 632
+                       L1675 705
+                       L1640 800"
+                />
+
+                <path
+                    class="draw-line chair-line"
+                    d="M1460 708
+                       Q1580 680 1695 725"
+                />
+
+
+                <!-- ==============================
+                     LEFT BAR CHAIR
+                =============================== -->
+
+                <path
+                    class="draw-line chair-line"
+                    d="M339 520
+                       Q372 480 425 493
+                       L473 510
+                       L470 620"
+                />
+
+                <line
+                    class="draw-line chair-line"
+                    x1="352"
+                    y1="570"
+                    x2="350"
+                    y2="800"
+                />
+
+                <line
+                    class="draw-line chair-line"
+                    x1="445"
+                    y1="565"
+                    x2="455"
+                    y2="800"
+                />
+
+<!-- =====================================================
+     PHOTO FRAMES
+===================================================== -->
+
+<!-- ================= BIG FRAME ================= -->
+
+<!-- Background -->
+<rect
+    x="1334"
+    y="414"
+    width="170"
+    height="114"
+    rx="12"
+    fill="#090909"/>
+
+<!-- Outer frame -->
+<rect
+    class="draw-line detail-line"
+    x="1334"
+    y="414"
+    width="170"
+    height="114"
+    rx="12"/>
+
+<!-- Inner frame -->
+<rect
+    class="draw-line detail-line"
+    x="1342"
+    y="422"
+    width="154"
+    height="98"
+    rx="9"/>
+
+<!-- Picture -->
+<rect
+    class="draw-line detail-line"
+    x="1408"
+    y="461"
+    width="30"
+    height="20"
+    rx="3"/>
+
+
+<!-- ================= SMALL WOOD FRAME ================= -->
+
+<rect
+    x="1322"
+    y="438"
+    width="58"
+    height="88"
+    rx="13"
+    fill="#090909"/>
+
+<rect
+    class="draw-line detail-line"
+    x="1322"
+    y="438"
+    width="58"
+    height="88"
+    rx="13"/>
+
+<rect
+    class="draw-line detail-line"
+    x="1330"
+    y="446"
+    width="42"
+    height="72"
+    rx="6"/>
+
+<line
+    class="draw-line detail-line"
+    x1="1338"
+    y1="505"
+    x2="1362"
+    y2="479"/>
+
+                <!-- ==============================
+                     TABLE OBJECTS
+                =============================== -->
+
+                <ellipse
+                    class="draw-line detail-line"
+                    cx="1395"
+                    cy="587"
+                    rx="70"
+                    ry="15"
+                />
+
+                <path
+                    class="draw-line detail-line"
+                    d="M1180 579 L1290 579 L1315 595 L1170 595 Z"
+                />
+
+
+                <!-- ==============================
+                     DECOR / LAMP
+                =============================== -->
+
+                <!-- ==============================
+     DECOR / TABLE LAMP
+=============================== -->
+
+<!-- Верхній ковпачок -->
+<rect
+    class="draw-line detail-line"
+    x="952"
+    y="398"
+    width="20"
+    height="8"
+/>
+
+<!-- Скляний плафон -->
+<path
+    class="draw-line detail-line"
+   d="
+M910 444
+
+C910 426 925 418 944 416
+C952 415 972 415 980 416
+C999 418 1014 426 1014 444
+
+L1014 462
+
+C1014 482 1000 492 980 495
+C972 496 952 496 944 495
+C924 492 910 482 910 462
+
+Z"
+/>
+
+<!-- Центральні трубки -->
+<line
+    class="draw-line detail-line"
+    x1="954"
+    y1="408"
+    x2="954"
+    y2="496"
+/>
+
+<line
+    class="draw-line detail-line"
+    x1="962"
+    y1="406"
+    x2="962"
+    y2="498"
+/>
+
+<line
+    class="draw-line detail-line"
+    x1="970"
+    y1="408"
+    x2="970"
+    y2="496"
+/>
+
+<!-- Перехід до ніжки -->
+<rect
+    class="draw-line detail-line"
+    x="947"
+    y="470"
+    width="30"
+    height="18"
+/>
+
+<!-- Ніжка -->
+<rect
+    class="draw-line detail-line"
+    x="950"
+    y="488"
+    width="24"
+    height="36"
+/>
+
+<!-- Основа -->
+<ellipse
+    class="draw-line detail-line"
+    cx="962"
+    cy="524"
+    rx="38"
+    ry="4"
+/>
+
+                
+
+            </svg>
+
+
+            <!-- RED ACCENTS -->
+            <div class="loader-red loader-red-one"></div>
+        
+
+
+
+        </div>
+
+
+        <div class="loader-bottom">
+
+            <span class="loader-step">
+                01 / STRUCTURE
+            </span>
+
+            <div class="loader-progress">
+                <div class="loader-progress-fill"></div>
             </div>
 
         </div>
@@ -65,13 +670,11 @@
     </div>
 
 
-
-    <!-- ========================
+    <!-- ==================================================
          HERO
-    ========================= -->
+    =================================================== -->
 
     <main class="hero">
-
 
         <div class="hero-top">
 
@@ -80,11 +683,10 @@
             </span>
 
             <span>
-                WEB DEVELOPER
+                INTERIOR / DESIGN
             </span>
 
         </div>
-
 
 
         <div class="hero-title">
@@ -92,7 +694,7 @@
             <div class="hero-title-mask">
 
                 <h1>
-                    YOUR NAME
+                   BY BOHDAN
                 </h1>
 
             </div>
@@ -100,35 +702,105 @@
         </div>
 
 
-
         <div class="hero-bottom">
 
             <span>
-                SCROLL TO EXPLORE
+                CREATE YOUR INTERIOR
             </span>
 
-            <span>
-                ↓
-            </span>
+            <a href="#projects">
+                VIEW PROJECTS ↓
+            </a>
 
         </div>
-
 
     </main>
 
 
+    <!-- ==================================================
+         ABOUT
+    =================================================== -->
 
-    <!-- ========================
+    <section class="about" id="about">
+
+        <div class="section-header">
+
+            <span>ABOUT</span>
+
+            <span>(01)</span>
+
+        </div>
+
+
+        <div class="about-content">
+
+            <div class="about-title">
+
+                <h2>
+                    СТВОРЕННЯ<br>
+                    ДИЗАЙНУ<br>
+                    З ХАРАКТЕРОМ.
+                </h2>
+
+            </div>
+
+
+            <div class="about-right">
+
+                <p class="about-description">
+                    Я створюю сучасні інтер'єри, у яких
+                    поєднуються функціональність,
+                    мінімалізм та характер простору.
+                </p>
+
+                <p class="about-description secondary">
+                    Кожен проєкт — це пошук балансу між
+                    архітектурою, матеріалами, світлом
+                    та способом життя людини.
+                </p>
+
+
+                <div class="about-details">
+
+                    <div>
+
+                        <span>FOCUS</span>
+
+                        <p>
+                            INTERIOR DESIGN<br>
+                            VISUALIZATION<br>
+                            CONCEPT
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>BASED</span>
+
+                        <p>
+                            UKRAINE<br>
+                            AVAILABLE<br>
+                            WORLDWIDE
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
          PROJECTS
-    ========================= -->
+    =================================================== -->
 
-    <section
-        class="projects"
-        id="projects"
-    >
-
-
-        <!-- HEADER -->
+    <section class="projects" id="projects">
 
         <div class="projects-header">
 
@@ -137,38 +809,27 @@
             </h2>
 
             <span>
-                (01 — 03)
+                (01 — 04)
             </span>
 
         </div>
 
 
-
-        <!-- PROJECT GRID -->
-
         <div class="projects-grid">
 
 
-            <!-- ========================
-                 PROJECT 01
-            ========================= -->
+            <!-- PROJECT 01 -->
 
-            <article class="project-card">
-
+            <article
+                class="project-card project-link"
+                data-project="project-1.html"
+                data-title="PROJECT ONE"
+            >
 
                 <div class="project-meta">
-
-                    <span>
-                        01
-                    </span>
-
-                    <span>
-                        2026
-                    </span>
-
+                    <span>01</span>
+                    <span>2026</span>
                 </div>
-
-
 
                 <div class="project-image">
 
@@ -179,56 +840,37 @@
 
                 </div>
 
-
-
                 <div class="project-card-bottom">
 
+                    <div>
 
-                    <div class="project-text">
-
-                        <h3>
-                            PROJECT ONE
-                        </h3>
+                        <h3>PROJECT ONE</h3>
 
                         <p>
-                            WEB DESIGN / DEVELOPMENT
+                            RESIDENTIAL / INTERIOR
                         </p>
 
                     </div>
 
-
-                    <span class="project-card-arrow">
-                        ↗
-                    </span>
-
+                    <span class="project-arrow">↗</span>
 
                 </div>
-
 
             </article>
 
 
+            <!-- PROJECT 02 -->
 
-            <!-- ========================
-                 PROJECT 02
-            ========================= -->
-
-            <article class="project-card">
-
+            <article
+                class="project-card project-link"
+                data-project="project-2.html"
+                data-title="PROJECT TWO"
+            >
 
                 <div class="project-meta">
-
-                    <span>
-                        02
-                    </span>
-
-                    <span>
-                        2026
-                    </span>
-
+                    <span>02</span>
+                    <span>2026</span>
                 </div>
-
-
 
                 <div class="project-image">
 
@@ -239,56 +881,37 @@
 
                 </div>
 
-
-
                 <div class="project-card-bottom">
 
+                    <div>
 
-                    <div class="project-text">
-
-                        <h3>
-                            PROJECT TWO
-                        </h3>
+                        <h3>PROJECT TWO</h3>
 
                         <p>
-                            FRONTEND / UI
+                            APARTMENT / INTERIOR
                         </p>
 
                     </div>
 
-
-                    <span class="project-card-arrow">
-                        ↗
-                    </span>
-
+                    <span class="project-arrow">↗</span>
 
                 </div>
-
 
             </article>
 
 
+            <!-- PROJECT 03 -->
 
-            <!-- ========================
-                 PROJECT 03
-            ========================= -->
-
-            <article class="project-card">
-
+            <article
+                class="project-card project-link"
+                data-project="project-3.html"
+                data-title="PROJECT THREE"
+            >
 
                 <div class="project-meta">
-
-                    <span>
-                        03
-                    </span>
-
-                    <span>
-                        2026
-                    </span>
-
+                    <span>03</span>
+                    <span>2026</span>
                 </div>
-
-
 
                 <div class="project-image">
 
@@ -299,46 +922,125 @@
 
                 </div>
 
-
-
                 <div class="project-card-bottom">
 
+                    <div>
 
-                    <div class="project-text">
-
-                        <h3>
-                            PROJECT THREE
-                        </h3>
+                        <h3>PROJECT THREE</h3>
 
                         <p>
-                            WEBSITE / DEVELOPMENT
+                            HOUSE / INTERIOR
                         </p>
 
                     </div>
 
-
-                    <span class="project-card-arrow">
-                        ↗
-                    </span>
-
+                    <span class="project-arrow">↗</span>
 
                 </div>
-
 
             </article>
 
 
-        </div>
+            <!-- PROJECT 04 -->
 
+            <article
+                class="project-card project-link"
+                data-project="project-4.html"
+                data-title="PROJECT FOUR"
+            >
+
+                <div class="project-meta">
+                    <span>04</span>
+                    <span>2026</span>
+                </div>
+
+                <div class="project-image">
+
+                    <img
+                        src="assets/images/project-4.jpg"
+                        alt="Project Four"
+                    >
+
+                </div>
+
+                <div class="project-card-bottom">
+
+                    <div>
+
+                        <h3>PROJECT FOUR</h3>
+
+                        <p>
+                            COMMERCIAL / INTERIOR
+                        </p>
+
+                    </div>
+
+                    <span class="project-arrow">↗</span>
+
+                </div>
+
+            </article>
+
+        </div>
 
     </section>
 
 
+    <!-- ==================================================
+         FOOTER
+    =================================================== -->
 
-    <!-- JAVASCRIPT -->
+    <footer class="footer">
+
+        <div class="footer-top">
+
+            <span>HAVE A PROJECT?</span>
+
+            <span>CONTACT</span>
+
+        </div>
+
+
+        <h2>
+            LET'S CREATE
+        </h2>
+
+
+        <div class="footer-bottom">
+
+            <span>© 2026</span>
+
+            <span>UKRAINE</span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ==================================================
+         PAGE TRANSITION
+    =================================================== -->
+
+    <div class="page-transition">
+
+        <div class="transition-content">
+
+            <span>
+                OPENING PROJECT
+            </span>
+
+            <h2>
+                PROJECT
+            </h2>
+
+        </div>
+
+        
+
+    </div>
+
 
     <script src="script.js"></script>
-
 
 </body>
 
