@@ -486,3 +486,43 @@ projectLinks.forEach(
     }
 );
 
+// ==================================================
+// HERO VIDEO ON HOVER
+// ==================================================
+
+const video = document.querySelector(".hero-video");
+
+if(hero && video){
+
+    hero.addEventListener("mouseenter",()=>{
+
+        video.currentTime=0;
+        video.play().catch(()=>{});
+
+    });
+
+    hero.addEventListener("mouseleave",()=>{
+
+        video.pause();
+        video.currentTime=0;
+
+    });
+
+}
+document.querySelectorAll(".slideshow").forEach(slideshow => {
+
+    const images = slideshow.querySelectorAll("img");
+
+    let current = 0;
+
+    setInterval(() => {
+
+        images[current].classList.remove("active");
+
+        current = (current + 1) % images.length;
+
+        images[current].classList.add("active");
+
+    }, 10000);
+
+});
